@@ -1,1 +1,4 @@
-var app = angular.module('SocialNetwork', []);
+'use strict';
+
+
+var app = angular.module('SocialNetwork', ['ngRoute', 'ngResource']);
