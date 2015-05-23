@@ -1,15 +1,14 @@
 'use strict';
 
-
 var app = angular.module('SocialNetwork', ['ngRoute', 'ngResource']);
 
-app.constant('baseServiceUrl', 'http://softuni-social-network.azurewebsites.net/api');
+app.constant('baseServiceUrl', 'http://softuni-social-network.azurewebsites.net');
 
 app.config(function ($routeProvider) {
 
     $routeProvider.when('/', {
         templateUrl: 'templates/home.html',
-        controller: 'HomeController'
+        //controller: 'HomeController'
     });
 
     $routeProvider.when('/login', {
@@ -26,4 +25,13 @@ app.config(function ($routeProvider) {
         { redirectTo: '/' }
     );
 
+});
+
+app.run(function ($rootScope, $location, authService) {
+    $rootScope.$on('$locationChangeStart', function (event) {
+        if ($location.path().indexOf("/users/") != -1 && !authService.isLoggedIn()) {
+            // Authorization check: anonymous site visitors cannot access user routes
+            $location.path("/");
+        }
+    });
 });

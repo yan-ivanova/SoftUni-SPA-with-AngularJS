@@ -6,7 +6,7 @@ app.factory('authService',
             login: function(userData, success, error) {
                 var request = {
                     method: 'POST',
-                    url: baseServiceUrl + '/users/login',
+                    url: baseServiceUrl + '/api/users/login',
                     data: userData
                 };
                 $http(request).success(function(data) {
@@ -18,7 +18,7 @@ app.factory('authService',
             register: function(userData, success, error) {
                 var request = {
                     method: 'POST',
-                    url: baseServiceUrl + '/users/register',
+                    url: baseServiceUrl + '/api/users/register',
                     data: userData
                 };
                 $http(request).success(function(data) {
@@ -30,7 +30,7 @@ app.factory('authService',
             logout: function () {
                 var request = {
                     method: 'POST',
-                    url: baseServiceUrl + '/users/logout',
+                    url: baseServiceUrl + '/api/users/logout',
                 };
                 delete sessionStorage['currentUser'];
             },
@@ -52,7 +52,7 @@ app.factory('authService',
 
             isNormalUser : function() {
                 var currentUser = this.getCurrentUser();
-                return (currentUser != undefined) && (!currentUser.isAdmin);
+                return (currentUser != undefined);// && (!currentUser.isAdmin);
             },
 
             isAdmin : function() {
