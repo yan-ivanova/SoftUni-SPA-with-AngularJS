@@ -1,7 +1,7 @@
 'use strict';
 
 app.controller('RegisterController',
-    function ($scope, $rootScope, $location, townsService, authService, notifyService) {
+    function ($scope, $rootScope, $location, authService, notifyService) {
         $rootScope.pageTitle = "Register";
 
         //$scope.userData = {townId: null};
