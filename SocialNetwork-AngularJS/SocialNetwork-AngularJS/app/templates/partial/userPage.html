@@ -1,0 +1,92 @@
+<!--Ads<span ng-if="pageTitle"> &ndash; {{pageTitle}}</span>
+
+<div ng-if="authService.isLoggedIn()" class="user-area">
+  <span>{{authService.getCurrentUser().username}}</span>
+  <a ng-click="logout()" class="link">Logout</a>
+</div>-->
+
+<div class="well-lg">
+    <div class="col-lg-2">
+
+        <span class="img-user">
+            {{authService.getCurrentUser().profileImageData}}
+        </span>
+
+
+        <p>{{authService.getCurrentUser().userName}}</p>
+
+        <span></span>
+        <span></span>
+
+
+    </div>
+    <div class="col-lg-4">
+
+        <ul class="list-unstyled list-inline list-social-icons">
+            <li>
+                <a href="#"><img src="/app/img/home.gif" /></a>
+            </li>
+            <li>
+                <a href="#"><img src="/app/img/friends.gif" /></i></a>
+            </li>
+            <li>
+                <a href="#" ng-click="editProfile()"><img src="/app/img/editProfile.gif" /></a>
+            </li>
+            <li>
+                <a href="#" ng-click="changePassword()"><img src="/app/img/changePassword.gif" /></a>
+            </li>
+            <li>
+                <a href="#" ng-click="logout()"><img src="/app/img/exit.gif" /></a>
+            </li>
+        </ul>
+
+    </div>
+    <div class="col-lg-6">
+
+        <div class="input-group">
+            <input type="search" ng-model="search" placeholder="Search...">
+            <!--<input type="text" class="form-control" placeholder="Search..." my-on-key-down-call="callUserSearch()>
+            <!--ng-model="asyncselected"
+            typeahead="userdata for users in " typeahead-loading="loadingUsers">-->
+            <i ng-repeat="name in names | filter:search">
+                {{ name }}
+            </i>
+                <!--<i ng-show="loadingUsers" class="glyphicon glyphicon-refresh"></i>-->
+
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                </span>
+</div>
+
+    </div>
+</div>
+<div class="col-lg-12">
+    <div class="page-title">
+        <span>News Feed</span>
+        <img src="/app/img/home.gif" />
+    </div>
+
+</div>
+
+
+
+<div class="col-lg-12">
+    <div class="col-lg-8">
+        <div class="media" ng-repeat="post in posts." data-id="{{ad.id}}">
+            <div class="pull-left">
+                <span class="fa-stack fa-2x">
+                    <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                    <i class="fa fa-database fa-stack-1x fa-inverse"></i>
+                </span>
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading">Service Four</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo itaque ipsum sit harum.</p>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-lg-4">
+
+    </div>
+</div>

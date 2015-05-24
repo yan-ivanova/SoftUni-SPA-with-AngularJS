@@ -380,3 +380,4 @@
 /// <reference path="../app/lib/noty/themes/bootstrap.js" />
 /// <reference path="../app/lib/noty/themes/default.js" />
 /// <reference path="../app/lib/noty/themes/relax.js" />
+/// <reference path="../app/js/controllers/userpagecontroller.js" />

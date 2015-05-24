@@ -38,7 +38,10 @@ app.factory('authService',
             getCurrentUser : function() {
                 var userObject = sessionStorage['currentUser'];
                 if (userObject) {
-                    return JSON.parse(sessionStorage['currentUser']);
+                    console.log('user data:' + userObject);
+                    //return JSON.parse(sessionStorage['currentUser']);
+                    return JSON.parse(userObject);
+
                 }
             },
 

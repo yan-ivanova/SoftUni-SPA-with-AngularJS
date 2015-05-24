@@ -58,6 +58,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\css\app.css" />
+    <Content Include="app\css\bootstrap.css" />
+    <Content Include="app\css\bootstrap.min.css" />
+    <Content Include="app\css\font-awesome.css" />
+    <Content Include="app\fonts\fontawesome-webfont.svg" />
+    <Content Include="app\img\changePassword.gif" />
+    <Content Include="app\img\editProfile.gif" />
+    <Content Include="app\img\exit.gif" />
+    <Content Include="app\img\friends.gif" />
+    <Content Include="app\img\home.gif" />
+    <Content Include="app\img\post.jpg" />
+    <Content Include="app\js\controllers\UserPageController.js" />
     <Content Include="app\js\controllers\LoginController.js" />
     <Content Include="app\js\controllers\RegisterController.js" />
     <Content Include="app\js\services\authService.js" />
@@ -90,6 +101,10 @@
     <Content Include="app\lib\angular\angular-scenario.js" />
     <Content Include="app\lib\angular\angular-touch.js" />
     <Content Include="app\lib\angular\angular-touch.min.js" />
+    <Content Include="app\fonts\fontawesome-webfont.eot" />
+    <Content Include="app\fonts\fontawesome-webfont.ttf" />
+    <Content Include="app\fonts\fontawesome-webfont.woff" />
+    <Content Include="app\fonts\FontAwesome.otf" />
     <None Include="app\lib\angular\angular.intellisense.js" />
     <Content Include="app\lib\angular\angular.js" />
     <Content Include="app\lib\angular\angular.min.js" />
@@ -2286,7 +2301,6 @@
     <Content Include="app\lib\angular\i18n\angular-locale_zu.js" />
     <Content Include="app\lib\angular\version.txt" />
     <Content Include="app\css\bootstrap-theme.css.map" />
-    <Content Include="app\css\bootstrap.css.map" />
     <Content Include="app\lib\noty\jquery.noty.js" />
     <Content Include="app\lib\noty\layouts\bottom.js" />
     <Content Include="app\lib\noty\layouts\bottomCenter.js" />
@@ -2308,13 +2322,14 @@
     <Content Include="app\lib\noty\themes\relax.js" />
     <Content Include="app\templates\home.html" />
     <Content Include="app\templates\login.html" />
-    <Content Include="app\templates\partial\header.html" />
+    <Content Include="app\templates\partial\changePassword.html" />
+    <Content Include="app\templates\partial\changeProfile.html" />
+    <Content Include="app\templates\partial\userPage.html" />
     <Content Include="app\templates\partial\left-sidebar.html" />
     <Content Include="app\templates\partial\right-sidebar.html" />
     <Content Include="app\templates\register.html" />
     <None Include="scripts\_references.js" />
     <Content Include="app\css\bootstrap-theme.css" />
-    <Content Include="app\css\bootstrap.css" />
     <Content Include="app\lib\jquery\jquery-2.1.4.js" />
     <Content Include="scripts\web-server.js" />
     <Content Include="Web.config" />

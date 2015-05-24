@@ -22,6 +22,9 @@
 </div>-->
 
 <div ng-if="authService.isAnonymous()" id="app-content" class="row">
+    <h1 class=" page-header">
+        Welcome to Social Network
+    </h1>
     <div class="col-lg-12">
         <div class="col-md-1">
             <a href="#/login" class="btn btn-default">Login</a>
@@ -31,4 +34,6 @@
         </div>
     </div>
 </div>
-<div ng-if="authService.isNormalUser()" id="da" class="row">da</div>
+<div ng-if="authService.isLoggedIn()" id="user-page" class="row">
+    <div ng-include="'templates/partial/userPage.html'" class="col-lg-12" ng-controller="UserPageController"></div>
+</div>
