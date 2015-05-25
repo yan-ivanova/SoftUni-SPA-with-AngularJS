@@ -23,23 +23,23 @@ app.config(function ($routeProvider) {
     });
 
     $routeProvider.when('/users/:username', {
-        templateUrl: 'templates/register.html',
-        controller: 'RegisterController'
+        templateUrl: 'templates/wall.html',
+        controller: 'WallController'
     });
 
     $routeProvider.when('/users/:username/friends', {
-        templateUrl: 'templates/register.html',
-        controller: 'RegisterController'
+        templateUrl: 'templates/myFriends.html',
+        controller: 'MyFriendsController'
     });
 
     $routeProvider.when('/profile', {
-        templateUrl: 'templates/register.html',
-        controller: 'RegisterController'
+        templateUrl: 'templates/userProfile.html',
+        controller: 'UserProfileController'
     });
 
     $routeProvider.when('/profile/password', {
-        templateUrl: 'templates/register.html',
-        controller: 'RegisterController'
+        templateUrl: 'templates/changePassword.html',
+        controller: 'ChangePasswordController'
     });
 
 
