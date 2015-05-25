@@ -5,70 +5,15 @@
   <a ng-click="logout()" class="link">Logout</a>
 </div>-->
 
-<div class="well-lg">
-    <div class="col-lg-2">
 
-        <span class="img-user">
-            {{authService.getCurrentUser().profileImageData}}
-        </span>
-
-
-        <p>{{authService.getCurrentUser().userName}}</p>
-
-        <span></span>
-        <span></span>
-
-
-    </div>
-    <div class="col-lg-4">
-
-        <ul class="list-unstyled list-inline list-social-icons">
-            <li>
-                <a href="#"><img src="/app/img/home.gif" /></a>
-            </li>
-            <li>
-                <a href="#"><img src="/app/img/friends.gif" /></i></a>
-            </li>
-            <li>
-                <a href="#" ng-click="editProfile()"><img src="/app/img/editProfile.gif" /></a>
-            </li>
-            <li>
-                <a href="#" ng-click="changePassword()"><img src="/app/img/changePassword.gif" /></a>
-            </li>
-            <li>
-                <a href="#" ng-click="logout()"><img src="/app/img/exit.gif" /></a>
-            </li>
-        </ul>
-
-    </div>
-    <div class="col-lg-6">
-
-        <div class="input-group">
-            <input type="search" ng-model="search" placeholder="Search...">
-            <!--<input type="text" class="form-control" placeholder="Search..." my-on-key-down-call="callUserSearch()>
-            <!--ng-model="asyncselected"
-            typeahead="userdata for users in " typeahead-loading="loadingUsers">-->
-            <i ng-repeat="name in names | filter:search">
-                {{ name }}
-            </i>
-                <!--<i ng-show="loadingUsers" class="glyphicon glyphicon-refresh"></i>-->
-
-                <span class="input-group-btn">
-                    <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
-                </span>
-</div>
-
-    </div>
-</div>
 <div class="col-lg-12">
     <div class="page-title">
-        <span>News Feed</span>
         <img src="/app/img/home.gif" />
+        <span>News Feed</span>
+        
     </div>
 
 </div>
-
-
 
 <div class="col-lg-12">
     <div class="col-lg-8">
@@ -87,6 +32,6 @@
 
     </div>
     <div class="col-lg-4">
-
+        da
     </div>
 </div>

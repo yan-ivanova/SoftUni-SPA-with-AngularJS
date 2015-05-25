@@ -9,6 +9,7 @@ app.controller('AppController',
             authService.logout();
             notifyService.showInfo("Logout successful");
             $location.path('/');
+            //$location.path('/logout');
         };
     }
 );

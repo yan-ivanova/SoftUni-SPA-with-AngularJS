@@ -22,6 +22,27 @@ app.config(function ($routeProvider) {
         controller: 'RegisterController'
     });
 
+    $routeProvider.when('/users/:username', {
+        templateUrl: 'templates/register.html',
+        controller: 'RegisterController'
+    });
+
+    $routeProvider.when('/users/:username/friends', {
+        templateUrl: 'templates/register.html',
+        controller: 'RegisterController'
+    });
+
+    $routeProvider.when('/profile', {
+        templateUrl: 'templates/register.html',
+        controller: 'RegisterController'
+    });
+
+    $routeProvider.when('/profile/password', {
+        templateUrl: 'templates/register.html',
+        controller: 'RegisterController'
+    });
+
+
         $routeProvider.otherwise(
         { redirectTo: '/' }
     );
