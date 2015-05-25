@@ -80,7 +80,7 @@
                 <!--     my-on-key-down-call="callUserSearch()>
                 <!--ng-model="asyncselected"
                 typeahead="userdata for users in " typeahead-loading="loadingUsers">-->
-                <i ng-repeat="name in names | filter:searchText">
+                <i ng-repeat="userName in users | filter:searchText">
                     {{ name }}
                 </i>
                 <!--<i ng-show="loadingUsers" class="glyphicon glyphicon-refresh"></i>-->
