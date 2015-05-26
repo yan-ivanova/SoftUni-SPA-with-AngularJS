@@ -7,18 +7,18 @@ app.factory('userService',
                 var request = {
                     method: 'PUT',
                     url: baseServiceUrl + '/api/me',
-                    headers: authService.getAuthHeaders(),
-                    user: userData
+                    user: userData,
+                    headers: authService.getAuthHeaders()                    
                 };
                 $http(request).success(success).error(error);
             },
 
-            changePassword: function (password, success, error) {
+            changePassword: function (passwordData, success, error) {
                 var request = {
                     method: 'PUT',
                     url: baseServiceUrl + '/api/me/changepassword',
-                    headers: authService.getAuthHeaders(),
-                    data: password
+                    data: passwordData,
+                    headers: authService.getAuthHeaders()                    
                 };
                 $http(request).success(success).error(error);
             },

@@ -2,9 +2,8 @@
 
 app.controller('ChangePasswordController',
     function ($scope, $rootScope, $location, userService, notifyService) {
-
-        $scope.changePassword = function (passData) {
-            userService.changePassword(passData,
+        $scope.changePassword = function (passwordData) {
+            userService.changePassword(passwordData,
                 function success() {
                     notifyService.showInfo("Password changed successfully");
                     $location.path("/");
