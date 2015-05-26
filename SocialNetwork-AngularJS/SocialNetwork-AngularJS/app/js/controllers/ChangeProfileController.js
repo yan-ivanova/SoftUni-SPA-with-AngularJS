@@ -15,8 +15,8 @@ app.controller('ChangeProfileController',
 
         $scope.getUserProfile();
 
-        $scope.updateProfile = function (userData) {
-            userService.editUser(userData,
+        $scope.changeUser = function (userData) {
+            userService.changeUser(userData,
                 function success() {
                     notifyService.showInfo("User edited successfully");
                     $location.path("/");

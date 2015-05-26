@@ -3,11 +3,11 @@
 app.factory('userService',
     function ($http, baseServiceUrl, authService) {
         return {
-            editUser: function (userData, success, error) {
+            changeUser: function (userData, success, error) {
                 var request = {
                     method: 'PUT',
                     url: baseServiceUrl + '/api/me',
-                    user: userData,
+                    data: userData,
                     headers: authService.getAuthHeaders()                    
                 };
                 $http(request).success(success).error(error);
