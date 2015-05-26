@@ -8,7 +8,7 @@ app.constant('pageSize', 4);
 app.config(function ($routeProvider) {
 
     $routeProvider.when('/', {
-        templateUrl: 'index.html',
+        templateUrl: 'templates/partial/userPage.html',
         //controller: 'HomeController'
     });
 

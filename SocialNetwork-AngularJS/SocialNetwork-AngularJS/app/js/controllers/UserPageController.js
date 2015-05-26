@@ -7,21 +7,21 @@ app.controller('UserPageController',
           'pageSize' : pageSize
       };
 
-      $scope.callUserSearch = function () {
-          $http({ method: 'GET', url: '/someUrl' }).
-            success(function (data, status, headers, config) {
-                $scope.results.push(data);  //retrieve results and add to existing results
-            })
-      }
+      //$scope.callUserSearch = function () {
+      //    $http({ method: 'GET', url: '/someUrl' }).
+      //      success(function (data, status, headers, config) {
+      //          $scope.results.push(data);  //retrieve results and add to existing results
+      //      })
+      //}
 
       $scope.newsFeed = function () {
           userService.getNewsFeed(
-                    $scope.postParams.startPage,postParams.pageSize,
+                    $scope.postParams.startPage, $scope.postParams.pageSize,
              function success(data) {
-                 $scope.ads = data;
+                 $scope.posts = data;
               },
               function error(err) {
-                  notifyService.showError("Cannot load ads", err);
+                  notifyService.showError("Cannot load posts", err);
               }
           );
       };
