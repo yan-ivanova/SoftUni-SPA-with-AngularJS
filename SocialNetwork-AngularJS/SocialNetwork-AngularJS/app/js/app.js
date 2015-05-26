@@ -8,7 +8,7 @@ app.constant('pageSize', 4);
 app.config(function ($routeProvider) {
 
     $routeProvider.when('/', {
-        templateUrl: 'templates/home.html',
+        templateUrl: 'index.html',
         //controller: 'HomeController'
     });
 
@@ -23,28 +23,28 @@ app.config(function ($routeProvider) {
     });
 
     $routeProvider.when('/users/:username', {
-        templateUrl: 'templates/wall.html',
+        templateUrl: 'templates/partial/wall.html',
         controller: 'WallController'
     });
 
     $routeProvider.when('/users/:username/friends', {
-        templateUrl: 'templates/myFriends.html',
+        templateUrl: 'templates/partial/myFriends.html',
         controller: 'MyFriendsController'
     });
 
     $routeProvider.when('/profile', {
-        templateUrl: 'templates/userProfile.html',
-        controller: 'UserProfileController'
+        templateUrl: 'templates/partial/changeProfile.html',
+        controller: 'ChangeProfileController'
     });
 
     $routeProvider.when('/profile/password', {
-        templateUrl: 'templates/changePassword.html',
+        templateUrl: 'templates/partial/changePassword.html',
         controller: 'ChangePasswordController'
     });
 
 
         $routeProvider.otherwise(
-        { redirectTo: '/' }
+        { redirectTo: '/'  }
     );
 
 });

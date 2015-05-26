@@ -3,12 +3,12 @@
 app.factory('userService',
     function ($http, baseServiceUrl, authService) {
         return {
-            editUser: function (user, success, error) {
+            editUser: function (userData, success, error) {
                 var request = {
                     method: 'PUT',
                     url: baseServiceUrl + '/api/me',
                     headers: authService.getAuthHeaders(),
-                    user: user
+                    user: userData
                 };
                 $http(request).success(success).error(error);
             },
@@ -18,7 +18,7 @@ app.factory('userService',
                     method: 'PUT',
                     url: baseServiceUrl + '/api/me/changepassword',
                     headers: authService.getAuthHeaders(),
-                    password: password
+                    data: password
                 };
                 $http(request).success(success).error(error);
             },
@@ -33,12 +33,11 @@ app.factory('userService',
                 $http(request).success(success).error(error);
             },
 
-            getLoggedUserData: function (userData, success, error) {
+            getUserData: function (success, error) {
                 var request = {
                     method: 'GET',
                     url: baseServiceUrl + '/api/me',
                     headers: authService.getAuthHeaders(),
-                    userData: userData
                 };
                 $http(request).success(success).error(error);
             },

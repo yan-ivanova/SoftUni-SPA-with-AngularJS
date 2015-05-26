@@ -68,6 +68,8 @@
     <Content Include="app\img\friends.gif" />
     <Content Include="app\img\home.gif" />
     <Content Include="app\img\post.jpg" />
+    <Content Include="app\js\controllers\ChangePasswordController.js" />
+    <Content Include="app\js\controllers\ChangeProfileController.js" />
     <Content Include="app\js\controllers\UserPageController.js" />
     <Content Include="app\js\controllers\LoginController.js" />
     <Content Include="app\js\controllers\RegisterController.js" />
@@ -2303,6 +2305,7 @@
     <Content Include="app\lib\angular\i18n\angular-locale_zu.js" />
     <Content Include="app\lib\angular\version.txt" />
     <Content Include="app\css\bootstrap-theme.css.map" />
+    <Content Include="app\lib\bootstrap\ui-bootstrap-tpls-0.13.0.js" />
     <Content Include="app\lib\noty\jquery.noty.js" />
     <Content Include="app\lib\noty\layouts\bottom.js" />
     <Content Include="app\lib\noty\layouts\bottomCenter.js" />

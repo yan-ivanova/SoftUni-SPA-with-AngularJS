@@ -1,8 +1,8 @@
 'use strict';
 
 app.controller('UserPageController',
-   function ($scope, notifyService, pageSize, authService) {
-      $scope.adsParams = {
+   function ($scope, notifyService, pageSize, authService, userService) {
+      $scope.postParams = {
           'startPage' : 1,
           'pageSize' : pageSize
       };
@@ -13,6 +13,19 @@ app.controller('UserPageController',
                 $scope.results.push(data);  //retrieve results and add to existing results
             })
       }
+
+      $scope.newsFeed = function () {
+          userService.getNewsFeed(
+                    $scope.postParams.startPage,postParams.pageSize,
+             function success(data) {
+                 $scope.ads = data;
+              },
+              function error(err) {
+                  notifyService.showError("Cannot load ads", err);
+              }
+          );
+      };
+
       //$scope.reloadAds = function() {
       //    adsService.getAds(
       //        $scope.adsParams,

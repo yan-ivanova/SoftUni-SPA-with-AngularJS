@@ -6,6 +6,7 @@
 </div>-->
 
 
+
 <div class="col-lg-12">
     <div class="page-title">
         <img src="/app/img/home.gif" />
@@ -15,9 +16,14 @@
 
 </div>
 
+<pagination total-items="ads.numItems" ng-model="postParams.startPage"
+            items-per-page="postParams.pageSize" ng-change="reloadAds()"
+            max-size="9" boundary-links="true">
+</pagination>
+
 <div class="col-lg-12">
     <div class="col-lg-8">
-        <div class="media" ng-repeat="post in posts." data-id="{{ad.id}}">
+        <div class="media" ng-repeat="post in newsFeed" data-id="{{post.id}}">
             <div class="pull-left">
                 <span class="fa-stack fa-2x">
                     <i class="fa fa-circle fa-stack-2x text-primary"></i>

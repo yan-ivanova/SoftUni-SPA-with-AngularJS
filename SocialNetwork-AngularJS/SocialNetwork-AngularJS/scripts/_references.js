@@ -383,3 +383,6 @@
 /// <reference path="../app/js/services/userservice.js" />
 /// <reference path="../app/js/services/userfriendsservise.js" />
 /// <reference path="../app/js/services/postservice.js" />
+/// <reference path="../app/lib/bootstrap/ui-bootstrap-tpls-0.13.0.js" />
+/// <reference path="../app/js/controllers/changepasswordcontroller.js" />
+/// <reference path="../app/js/controllers/changeprofilecontroller.js" />
