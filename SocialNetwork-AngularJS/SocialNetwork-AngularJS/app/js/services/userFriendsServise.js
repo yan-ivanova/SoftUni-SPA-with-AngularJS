@@ -93,7 +93,7 @@ app.factory('userFriendsService', ['$resource', 'baseServiceUrl', 'authService',
                     }
                 );
 
-                return friendRequest.sendRequests(username, success, error);
+                return friendRequest.sendRequests(name, success, error);
             },
 
             approveFriendRequest: function (requestId, success, error) {
