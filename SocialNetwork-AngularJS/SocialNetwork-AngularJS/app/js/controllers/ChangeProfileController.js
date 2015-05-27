@@ -1,7 +1,7 @@
 ﻿'use strict';
 
-app.controller('ChangeProfileController',
-    function ($scope, $rootScope, $location, userService, notifyService) {
+app.controller('ChangeProfileController', ['$scope', '$rootScope', '$location', 'userService', 'notifyService', 'Upload',
+    function ($scope, $rootScope, $location, userService, notifyService, Upload) {
         $scope.getUserProfile = function () {
             userService.getUserData(
                 function success(data) {
@@ -26,5 +26,24 @@ app.controller('ChangeProfileController',
                 }
             );
         };
+
+        $scope.$watch('files', function () {
+            $scope.upload($scope.files);
+        });
+
+        $scope.upload = function (files) {
+            if (files && files.length) {
+                for (var i = 0; i < files.length; i++) {
+                    var file = files[i];
+                    Upload.upload({
+                        url: 'upload/url',
+                        fields: {'username': $scope.username},
+                        file: file
+                    }).success(function (data, status, headers, config) {
+                    });                }
+            }
+        };
+
+
     }
-);
+]);

@@ -62,6 +62,7 @@
     <Content Include="app\css\bootstrap.min.css" />
     <Content Include="app\css\font-awesome.css" />
     <Content Include="app\fonts\fontawesome-webfont.svg" />
+    <Content Include="app\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="app\img\changePassword.gif" />
     <Content Include="app\img\editProfile.gif" />
     <Content Include="app\img\exit.gif" />
@@ -77,6 +78,9 @@
     <Content Include="app\js\services\notifyService.js" />
     <Content Include="app\js\services\postService.js" />
     <Content Include="app\js\services\userFriendsServise.js" />
+    <Content Include="app\lib\angular\ng-file-upload-all.js" />
+    <Content Include="app\lib\angular\ng-file-upload-shim.js" />
+    <Content Include="app\lib\angular\ng-file-upload.js" />
     <Content Include="app\lib\bootstrap\bootstrap.js" />
     <Content Include="app\index.html" />
     <Content Include="app\js\app.js" />
@@ -109,6 +113,10 @@
     <Content Include="app\fonts\fontawesome-webfont.ttf" />
     <Content Include="app\fonts\fontawesome-webfont.woff" />
     <Content Include="app\fonts\FontAwesome.otf" />
+    <Content Include="app\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="app\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="app\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="app\fonts\glyphicons-halflings-regular.woff2" />
     <None Include="app\lib\angular\angular.intellisense.js" />
     <Content Include="app\lib\angular\angular.js" />
     <Content Include="app\lib\angular\angular.min.js" />
@@ -2330,7 +2338,7 @@
     <Content Include="app\templates\partial\changePassword.html" />
     <Content Include="app\templates\partial\changeProfile.html" />
     <Content Include="app\templates\partial\userPage.html" />
-    <Content Include="app\templates\partial\left-sidebar.html" />
+    <Content Include="app\templates\partial\userWall.html" />
     <Content Include="app\templates\partial\right-sidebar.html" />
     <Content Include="app\templates\register.html" />
     <Content Include="app\lib\angular\i18n\ngLocale\.gitkeep" />

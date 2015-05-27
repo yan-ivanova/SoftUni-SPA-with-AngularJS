@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module('SocialNetwork', ['ngRoute', 'ngResource']);
+var app = angular.module('SocialNetwork', ['ngRoute', 'ngResource', 'ngFileUpload']);
 
 app.constant('baseServiceUrl', 'http://softuni-social-network.azurewebsites.net');
 app.constant('pageSize', 4);
@@ -11,7 +11,7 @@ app.config(function ($routeProvider) {
         templateUrl: 'templates/partial/userPage.html',
         //controller: 'HomeController'
     });
-
+    
     $routeProvider.when('/login', {
         templateUrl: 'templates/login.html',
         controller: 'LoginController'

@@ -89,6 +89,21 @@
                 <span class="input-group-btn">
                     <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
                 </span>
+
+                <form class="navbar-search col-md-3 docs-search ng-pristine ng-valid" ng-submit="submit()" ng-class="{focus:focus}">
+                    <span class="glyphicon glyphicon-search search-icon"></span>
+                    <input name="as_q" class="search-query ng-pristine ng-valid ng-touched" type="text" placeholder="Click or press / to search" ng-model="q" autocomplete="off" docs-search-input="" ng-change="search(q)" ng-blur="focus=false" ng-focus="focus=true">
+                </form> 
+            </div>
+            <div class="search-results-container ng-hide" ng-show="hasResults">
+                <div class="container">
+                    <div class="search-results-frame">
+                        <!-- ngRepeat: (key, value) in results -->
+                    </div>
+                    <a class="search-close" href="" ng-click="hideResults()">
+                        <span class="glyphicon glyphicon-remove search-close-icon"></span> Close
+                    </a>
+                </div>
             </div>
 
         </div>

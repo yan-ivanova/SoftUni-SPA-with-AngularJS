@@ -386,3 +386,6 @@
 /// <reference path="../app/lib/bootstrap/ui-bootstrap-tpls-0.13.0.js" />
 /// <reference path="../app/js/controllers/changepasswordcontroller.js" />
 /// <reference path="../app/js/controllers/changeprofilecontroller.js" />
+/// <reference path="../app/lib/angular/ng-file-upload-all.js" />
+/// <reference path="../app/lib/angular/ng-file-upload.js" />
+/// <reference path="../app/lib/angular/ng-file-upload-shim.js" />

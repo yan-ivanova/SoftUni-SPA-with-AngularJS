@@ -16,7 +16,7 @@
                         <img src="" ng-src="{{userData.profileImageData}}" class="img-thumbnail img-responsive" base-sixty-four-image="userData.profileImageData" alt="{{editUser.name}}" ng-if="editUserData.profileImageData" />
                         <label for="inputProfileImageData" class="col-md-3 control-label">Profile picture<br />Limit: 128kb</label>
                         <div class="col-md-9">
-                            <input type="file" class="form-control" ng-init="editUserData.profileImageData = editUser.profileImageData" ng-model="userData.profileImageData" base-sixty-four-input id="inputProfileImageData" placeholder="img" ng-change="formatProfileImgToBase64()">
+                            <input type="file" class="form-control" ng-init="userData.profileImageData = editUser.profileImageData" ng-model="userData.profileImageData" base-sixty-four-input id="inputProfileImageData" placeholder="img" ng-change="formatProfileImgToBase64()">
                                                     </div>
                     </div>
                     </div>
@@ -38,13 +38,13 @@
                             <div class="col-lg-9">
                                 <div class="radio" ng-model="userData.gender" required>
                                     <label>
-                                        <input type="radio" name="gender" value="1">Male
+                                        <input type="radio" name="gender" ng-model="userData.gender" value="1">Male
                                     </label>
                                     <label>
-                                        <input type="radio" name="gender" value="2">Female
+                                        <input type="radio" name="gender" ng-model="userData.gender" value="2">Female
                                     </label>
                                     <label>
-                                        <input type="radio" name="gender" value="0">Other
+                                        <input type="radio" name="gender" ng-model="userData.gender" value="0">Other
                                     </label>
                                 </div>
                             </div>
@@ -70,8 +70,34 @@
                                 </div>
                             </div>
 
+                            <div class="drop-box ng-valid ng-dirty" ng-model="files" ngf-select="" ng-model-rejected="rejFiles" ngf-accept="'image/*,application/pdf'" ngf-multiple="true" ngf-drop-available="dropAvailable" ngf-allow-dir="true" ngf-drag-over-class="{accept:'dragover', reject:'dragover-err', delay:100}" ngf-drop="" ngf-max-size="maxSize" ngf-min-size="minSize">
+                                <div class="ng-hide" ng-hide="dropAvailable">File Drop not available</div>
+                                <div ng-show="dropAvailable">Drop Images or PDFs</div>
+                                <div>click to select</div>
+                            </div>
 
-                        </div>
+                            <div class="up-buttons">
+                                <div class="drop-box ng-valid ng-dirty" ng-model="files" ngf-select="" ng-model-rejected="rejFiles" ngf-accept="accept" ngf-multiple="multiple" ngf-drop-available="dropAvailable" ngf-allow-dir="allowDir" ngf-drag-over-class="{accept:'dragover', reject:'dragover-err', delay:100}" ngf-drop="" ngf-max-size="maxSize" ngf-min-size="minSize" ngf-capture="capture" ngf-disabled="disabled" accept="image/*,audio/*,video/*">
+                                    Select File
+                                    <span ng-show="dropAvailable">or Drop</span>
+                                </div><br>
+                            </div>
+
+                            <p>ot tuk</p>
+                            <fieldset>
+                                <div tabindex="0" class="upload-button ng-pristine ng-untouched ng-valid" ng-model="files" ngf-select="" ng-model-rejected="rejFiles" ngf-accept="'*.jpg,*.png'" ngf-multiple="false">Attach an Image or PDF</div>
+                                <div class="drop-box ng-valid ng-dirty" ng-model="userData.coverImageData" ngf-select="" ng-model-rejected="rejFiles" ngf-accept="'image/*'" ngf-multiple="true" ngf-drop-available="dropAvailable" ngf-allow-dir="true" ngf-drag-over-class="{accept:'dragover', reject:'dragover-err', delay:100}" ngf-drop="">div
+                                </div>
+                                <div class="preview">
+                                    <div>Preview image/audio/video:</div>
+                                    <img style="max-width: 300px;" src="" ng-show="userData.coverImageData.type.indexOf('image') > -1" ngf-src="userData.coverImageData" ngf-accept="'image/*'" ng-model="userData.coverImageData">
+                                    <p>pp</p>
+                                    <img class="ng-hide" style="max-width: 300px;" src="" ng-show="files[0].type.indexOf('image') > -1" ngf-src="files[0]" ngf-accept="'image/*'" ng-model="userData.coverImageData">
+                                </div>
+                                <button class="upload-button ng-pristine ng-untouched ng-valid" ng-model="userData.coverImageData" ngf-select="" ngf-multiple="false" ngf-accept="'*.jpg,*.png'">Attach Any File</button>
+                            </fieldset>
+
+                            </div>
                     </div>
                 </div>
                 <div class="form-group col-lg-12">
