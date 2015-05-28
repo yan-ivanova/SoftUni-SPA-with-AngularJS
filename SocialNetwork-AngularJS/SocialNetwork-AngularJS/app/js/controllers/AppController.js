@@ -8,8 +8,10 @@ app.controller('AppController',
         $scope.logout = function () {
             authService.logout();
             notifyService.showInfo("Logout successful");
-            $location.path('/');
-            //$location.path('/logout');
+            //$location.path('/');
+            //location.reload();
+            //$route.reload();
+            $location.path('/logout');
         };
     }
 );

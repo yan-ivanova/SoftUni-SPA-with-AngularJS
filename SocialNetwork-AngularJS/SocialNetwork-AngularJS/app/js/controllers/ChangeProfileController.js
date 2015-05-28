@@ -19,6 +19,7 @@ app.controller('ChangeProfileController', ['$scope', '$rootScope', '$location', 
             userService.changeUser(userData,
                 function success() {
                     notifyService.showInfo("User edited successfully");
+                    console.log(userData);
                     $location.path("/");
                 },
                 function error(err) {
@@ -27,14 +28,14 @@ app.controller('ChangeProfileController', ['$scope', '$rootScope', '$location', 
             );
         };
 
-        $scope.$watch('files', function () {
-            $scope.upload($scope.files);
+        $scope.$watch('coverImg', function () {
+            $scope.upload($scope.coverImg);
         });
 
-        $scope.upload = function (files) {
-            if (files && files.length) {
-                for (var i = 0; i < files.length; i++) {
-                    var file = files[i];
+        $scope.upload = function (coverImg) {
+            if (coverImg && coverImg.length) {
+                for (var i = 0; i < coverImg.length; i++) {
+                    var file = coverImg[i];
                     Upload.upload({
                         url: 'upload/url',
                         fields: {'username': $scope.username},
@@ -44,6 +45,30 @@ app.controller('ChangeProfileController', ['$scope', '$rootScope', '$location', 
             }
         };
 
+        $scope.$watch('profileImg', function () {
+            $scope.upload($scope.profileImg);
+        });
 
+        $scope.upload = function (profileImg) {
+            if (profileImg && profileImg.length) {
+                for (var i = 0; i < profileImg.length; i++) {
+                    var file = profileImg[i];
+                    Upload.upload({
+                        url: 'upload/url',
+                        fields: { 'username': $scope.username },
+                        file: file
+                    }).success(function (data, status, headers, config) {
+                    });
+                }
+            }
+        };
+
+        //function convertProfileImg() {
+        //    $scope.userData.profileImageData = 'data:image/jpg;base64,' + $scope.userData.profileImageData.base64;
+        //}
+        //function convertCoverImg() {
+        //    $scope.userData.coverImageData = 'data:image/jpg;base64,' + $scope.userData.coverImageData.base64;
+        //}
+        //ng-change="convertProfileImg()"
     }
 ]);

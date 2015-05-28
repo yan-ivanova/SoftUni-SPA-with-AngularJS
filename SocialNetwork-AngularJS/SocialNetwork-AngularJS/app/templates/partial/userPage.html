@@ -6,38 +6,49 @@
 </div>-->
 
 
+<div class="col-lg-12" ng-if="authService.isLoggedIn()">
+    <div class="col-lg-12">
+        <div class="page-title">
+            <img src="/app/img/home.gif" />
+            <span>News Feed</span>
 
-<div class="col-lg-12">
-    <div class="page-title">
-        <img src="/app/img/home.gif" />
-        <span>News Feed</span>
-        
-    </div>
-
-</div>
-
-<pagination total-items="posts.numItems" ng-model="postParams.startPage"
-            items-per-page="postParams.pageSize" ng-change="reloadAds()"
-            max-size="9" boundary-links="true">
-</pagination>
-
-<div class="col-lg-12">
-    <div class="col-lg-8">
-        <div class="media" ng-repeat="post in posts" data-id="{{post.id}}">
-            <div class="pull-left">
-                <span class="fa-stack fa-2x">
-                    <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                    <i class="fa fa-database fa-stack-1x fa-inverse"></i>
-                </span>
-            </div>
-            <div class="media-body">
-                <h4 class="media-heading">Service Four</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo itaque ipsum sit harum.</p>
-            </div>
         </div>
 
     </div>
-    <div class="col-lg-4">
-        da
+
+    <pagination total-items="posts.numItems" ng-model="postParams.startPage"
+                items-per-page="postParams.pageSize" ng-change="reloadAds()"
+                max-size="7" boundary-links="true">
+    </pagination>
+
+    <div class="col-lg-12">
+        <div class="col-lg-8">
+            <div class="media" ng-repeat="post in posts" data-id="{{post.id}}">
+                <div class="pull-left">
+                    <span class="fa-stack fa-2x">
+                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa fa-database fa-stack-1x fa-inverse"></i>
+                    </span>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">Service Four</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo itaque ipsum sit harum.</p>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-sm-6 col-md-6 col-lg-6 col-md-offset-1">
+                    <div posts></div>
+                </div>
+
+                <div class="col-sm-4 col-sm-offset-1 col-md-3 col-md-offset-1 col-lg-3 col-lg-offset-1" friends-sidebar></div>
+            </div>
+
+
+        </div>
+        <div class="col-lg-4">
+            da
+        </div>
     </div>
 </div>

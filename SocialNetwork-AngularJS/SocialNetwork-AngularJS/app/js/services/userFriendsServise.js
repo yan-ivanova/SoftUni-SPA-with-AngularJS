@@ -128,5 +128,3 @@ app.factory('userFriendsService', ['$resource', 'baseServiceUrl', 'authService',
             }
         }
     }]);
-
-

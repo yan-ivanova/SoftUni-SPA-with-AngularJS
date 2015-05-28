@@ -389,3 +389,4 @@
 /// <reference path="../app/lib/angular/ng-file-upload-all.js" />
 /// <reference path="../app/lib/angular/ng-file-upload.js" />
 /// <reference path="../app/lib/angular/ng-file-upload-shim.js" />
+/// <reference path="../app/js/controllers/userwallcontroller.js" />

@@ -8,7 +8,7 @@ app.factory('notifyService',
                     text: msg,
                     type: 'info',
                     layout: 'topCenter',
-                    timeout: 2000}
+                    timeout: 1000}
                 );
             },
             showError: function(msg, serverError) {
@@ -35,7 +35,7 @@ app.factory('notifyService',
                     text: msg,
                     type: 'error',
                     layout: 'topCenter',
-                    timeout: 5000}
+                    timeout: 3000}
                 );
             }
         }
