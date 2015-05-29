@@ -8,7 +8,7 @@ app.constant('pageSize', 4);
 app.config(function ($routeProvider) {
 
     $routeProvider.when('/', {
-        templateUrl: 'templates/partial/userPage.html',
+        templateUrl: 'templates/home.html',
         //controller: 'HomeController'
     });
     
@@ -23,7 +23,7 @@ app.config(function ($routeProvider) {
     });
 
     $routeProvider.when('/users/:username', {
-        templateUrl: 'templates/partial/wall.html',
+        templateUrl: 'templates/partial/userWall.html',
         controller: 'WallController'
     });
 

@@ -1,0 +1,110 @@
+﻿<div class="col-lg-2">
+    <a href="#/users/{{username}}">
+        <span class="img-user">
+            {{authService.getCurrentUser().profileImageData}}
+        </span>
+
+        <p>{{authService.getCurrentUser().userName}}</p>
+    </a>
+</div>
+
+<div class="col-lg-4">
+    <ul class="list-group-item-heading list-inline list-social-icons">
+        <li>
+            <a href="#/"><img src="/app/img/home.gif" /></a>
+        </li>
+        <li>
+            <a href="#/users/{{authService.getCurrentUser().username}}/friends"><img src="/app/img/friends.gif" /></a>
+        </li>
+
+        <li ng-mouseenter="showPendingRequest=true" ng-mouseleave="showPendingRequest=false">
+            <a href="#/friends/requests/" class="glyphicon glyphicon-user">
+                <span ng-if="pendingRequests.length > 0" class="badge"> {{pendingRequests.length}}</span>
+            </a>
+            <ul id="friend-requests-box" ng-if="showPendingRequest && pendingRequests.length > 0">
+                <li ng-repeat="request in pendingRequests" class="list-group-item">
+                    <a href="#/user/{{request.user.username}}/wall/" class="media-left">
+                        <img ng-src="{{request.user.profileImageData}}" err-src="{{defaultImage}}" alt="profile picture" style="width: 50px; height: 50px" />
+                    </a>
+                    <div class="media-body">
+                        <div class="media-body">
+                            <a class="name" href="#/user/{{request.user.username}}/wall/" style="color:black">{{request.user.name}}</a>
+                        </div>
+                        <div class="media-right action">
+                            <span ng-click="acceptFriendRequest(request)" class="media-left btn btn-success btn-sm">accept</span>
+                        </div>
+                        <div class="media-right action">
+                            <span ng-click="rejectFriendRequest(request)" class="media-right btn btn-default btn-sm">reject</span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="#/profile"><img src="/app/img/editProfile.gif" /></a>
+        </li>
+        <li>
+            <a href="#/profile/password"><img src="/app/img/changePassword.gif" alt="changePassword" /></a>
+        </li>
+        <li>
+            <a href="#/logout" ng-click="logout()"><img src="/app/img/exit.gif" /></a>
+        </li>
+    </ul>
+
+</div>
+
+<div class="col-lg-6">
+
+    <form class="navbar-form navbar-right" id="search-form" role="search">
+        <div class="input-group">
+            <input type="text" id="search-input" ng-model="searchTerm" ng-change="searchUser();" ng-blur="clearSearchResults()" class="form-control" placeholder="Search...">
+        </div><!-- /input-group -->
+
+        <div id="search-results" ng-if="searchResults" class="list-group">
+            <div ng-repeat="user in searchResults" class="list-group-item">
+                <a href="#/user/{{user.username}}/wall/">
+                    <img ng-src="{{user.profileImageData}}" err-src="{{defaultImage}}" alt="profile picture" style="width: 50px; height: 50px" />
+                    <span class="name">{{user.name}}</span>
+                </a>
+            </div>
+        </div>
+    </form>
+
+
+
+
+    <!---->
+    <div class="input-group">
+        <!--<input type="search" ng-model="search" placeholder="Search...">-->
+        <input type="text" class="form-control" placeholder="Search..." ng-model="searchText" />
+        <!--     my-on-key-down-call="callUserSearch()>
+        <!--ng-model="asyncselected"
+        typeahead="userdata for users in " typeahead-loading="loadingUsers">-->
+        <i ng-repeat="userName in users | filter:searchText">
+            {{ name }}
+        </i>
+        <!--<i ng-show="loadingUsers" class="glyphicon glyphicon-refresh"></i>-->
+
+        <span class="input-group-btn">
+            <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+        </span>
+
+        <form class="navbar-search col-md-3 docs-search ng-pristine ng-valid" ng-submit="submit()" ng-class="{focus:focus}">
+            <span class="glyphicon glyphicon-search search-icon"></span>
+            <input name="as_q" class="search-query ng-pristine ng-valid ng-touched" type="text" placeholder="Search..." ng-model="q" autocomplete="off" docs-search-input="" ng-change="search(searchText)" ng-blur="focus=false" ng-focus="focus=true">
+        </form>
+    </div>
+
+    <div class="search-results-container ng-hide" ng-show="hasResults">
+        <div class="container">
+            <div class="search-results-frame">
+                <!-- ngRepeat: (key, value) in results -->
+            </div>
+            <a class="search-close" href="" ng-click="hideResults()">
+                <span class="glyphicon glyphicon-remove search-close-icon"></span> Close
+            </a>
+        </div>
+    </div>
+
+</div>

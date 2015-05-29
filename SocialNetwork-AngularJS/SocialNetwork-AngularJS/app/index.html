@@ -13,25 +13,26 @@
     <div class="container">
         <!--<header id="app-header">
             Social Network
+            <div ng-include="'/app/templates/home.html'"></div>
         </header>-->
-        <div ng-include="'/app/templates/home.html'"></div>
-            <footer id="app-footer">
-                &copy; 2015 Software University, No Rights Reserved
-            </footer>
+        <div ng-view></div>
+        <footer id="app-footer">
+            &copy; 2015 Software University, No Rights Reserved
+        </footer>
     </div>
 
 
     <script src="lib/angular/angular.js"></script>
     <script src="lib/angular/angular-route.js"></script>
     <script src="lib/angular/angular-resource.js"></script>
-    
-    
+
+
 
     <script src="lib/jquery/jquery-2.1.4.js"></script>
     <script src="lib/noty/jquery.noty.js"></script>
     <script src="lib/bootstrap/bootstrap.js"></script>
 
-    
+
     <script src="lib/angular/ng-file-upload-shim.js"></script>
     <script src="lib/angular/ng-file-upload.js"></script>
 
@@ -48,7 +49,7 @@
     <script src="js/services/postService.js"></script>
 
     <script src="js/controllers/AppController.js"></script>
-    
+
     <script src="js/controllers/LoginController.js"></script>
     <script src="js/controllers/RegisterController.js"></script>
     <script src="js/controllers/UserPageController.js"></script>

@@ -2335,8 +2335,8 @@
     <Content Include="app\lib\noty\themes\default.js" />
     <Content Include="app\lib\noty\themes\relax.js" />
     <Content Include="app\templates\home.html" />
-    <Content Include="app\templates\homeAnonimos.html" />
-    <Content Include="app\templates\homeLoggedUser.html" />
+    <Content Include="app\templates\homeAnonymous.html" />
+    <Content Include="app\templates\homeHeader.html" />
     <Content Include="app\templates\login.html" />
     <Content Include="app\templates\partial\changePassword.html" />
     <Content Include="app\templates\partial\changeProfile.html" />
