@@ -71,7 +71,8 @@
     <Content Include="app\img\post.jpg" />
     <Content Include="app\js\controllers\ChangePasswordController.js" />
     <Content Include="app\js\controllers\ChangeProfileController.js" />
-    <Content Include="app\js\controllers\UserPageController.js" />
+    <Content Include="app\js\controllers\UserFriendsController.js" />
+    <Content Include="app\js\controllers\FeedController.js" />
     <Content Include="app\js\controllers\LoginController.js" />
     <Content Include="app\js\controllers\RegisterController.js" />
     <Content Include="app\js\controllers\UserWallController.js" />
@@ -2335,13 +2336,12 @@
     <Content Include="app\lib\noty\themes\default.js" />
     <Content Include="app\lib\noty\themes\relax.js" />
     <Content Include="app\templates\home.html" />
-    <Content Include="app\templates\homeAnonymous.html" />
     <Content Include="app\templates\homeHeader.html" />
     <Content Include="app\templates\login.html" />
     <Content Include="app\templates\partial\changePassword.html" />
     <Content Include="app\templates\partial\changeProfile.html" />
     <Content Include="app\templates\partial\friendsBox.html" />
-    <Content Include="app\templates\partial\userPage.html" />
+    <Content Include="app\templates\partial\feedPage.html" />
     <Content Include="app\templates\partial\userWall.html" />
     <Content Include="app\templates\partial\friendsPage.html" />
     <Content Include="app\templates\register.html" />

@@ -1,9 +1,9 @@
 ﻿'use strict';
 
-app.factory('userFriendsService', ['$resource', 'baseServiceUrl', 'authService',
+app.factory('userFriendsService', ['$resource', 'baseServiceUrl', 'authService', 'notifyService',
     function ($resource, baseServiceUrl, authService) {
         return {
-            getUserFriendsPreview: function (params, success, error) {
+            getUserFriendsPreview: function (success, error) {
                 var friendsPreview = $resource(
                     baseServiceUrl + '/api/me/friends/preview',
                     null,
@@ -11,14 +11,14 @@ app.factory('userFriendsService', ['$resource', 'baseServiceUrl', 'authService',
                         'getFriendsPreview': {
                             method: 'GET',
                             headers: authService.getAuthHeaders()
-                        }  
+                        }
                     }
                 );
 
-                return friendsPreview.getFriendsPreview(params, success, error);
+                return friendsPreview.getFriendsPreview(success, error);
             },
 
-            getUserFriends: function (params, success, error) {
+            getUserFriends: function (success, error) {
                 var friends = $resource(
                     baseServiceUrl + '/api/me/friends',
                     null,
@@ -27,11 +27,11 @@ app.factory('userFriendsService', ['$resource', 'baseServiceUrl', 'authService',
                             method: 'GET',
                             isArray: true,
                             headers: authService.getAuthHeaders()
-                        }  
+                        }
                     }
                 );
 
-                return friends.getFriends(params, success, error);
+                return friends.getFriends(success, error);
             },
 
             getOtherUserFriendsPreview: function (username, success, error) {
@@ -42,7 +42,7 @@ app.factory('userFriendsService', ['$resource', 'baseServiceUrl', 'authService',
                         'getOtherFriendsPreview': {
                             method: 'GET',
                             headers: authService.getAuthHeaders()
-                        }  
+                        }
                     }
                 );
 
@@ -58,14 +58,14 @@ app.factory('userFriendsService', ['$resource', 'baseServiceUrl', 'authService',
                             method: 'GET',
                             isArray: true,
                             headers: authService.getAuthHeaders()
-                        }  
+                        }
                     }
                 );
 
                 return friends.getOtherFriends(username, success, error);
             },
 
-            getFriendRequests: function (username, success, error) {
+            getFriendRequests: function (success, error) {
                 var friendRequests = $resource(
                     baseServiceUrl + '/api/me/requests',
                     null,
@@ -74,11 +74,11 @@ app.factory('userFriendsService', ['$resource', 'baseServiceUrl', 'authService',
                             method: 'GET',
                             isArray: true,
                             headers: authService.getAuthHeaders()
-                        }  
+                        }
                     }
                 );
 
-                return friendRequests.getRequests(username, success, error);
+                return friendRequests.getRequests(success, error);
             },
 
             sendFriendRequest: function (name, success, error) {
@@ -89,7 +89,7 @@ app.factory('userFriendsService', ['$resource', 'baseServiceUrl', 'authService',
                         'sendRequests': {
                             method: 'POST',
                             headers: authService.getAuthHeaders()
-                        }  
+                        }
                     }
                 );
 
@@ -105,7 +105,7 @@ app.factory('userFriendsService', ['$resource', 'baseServiceUrl', 'authService',
                             method: 'PUT',
                             isArray: true,
                             headers: authService.getAuthHeaders()
-                        }  
+                        }
                     }
                 );
 
@@ -120,7 +120,7 @@ app.factory('userFriendsService', ['$resource', 'baseServiceUrl', 'authService',
                         'reject': {
                             method: 'PUT',
                             headers: authService.getAuthHeaders()
-                        }  
+                        }
                     }
                 );
 
@@ -128,3 +128,88 @@ app.factory('userFriendsService', ['$resource', 'baseServiceUrl', 'authService',
             }
         }
     }]);
+
+//with $http
+
+//app.factory('userFriendsService', ['$http', 'baseServiceUrl', 'authService', 'notifyService'
+//    function ($http, baseServiceUrl, authService, notifyService) {
+//        return {
+//            getUserFriendsPreview: function (success, error) {
+//                var request = {
+//                    method: 'GET',
+//                    url: baseServiceUrl + '/api/me/friends/preview',
+//                    headers: authService.getAuthHeaders()
+//                }
+//                $http(request).success(success).error(error);
+//            },
+
+//            getUserFriends: function (success, error) {
+//                var request = {
+//                    method: 'GET',
+//                    url: baseServiceUrl + '/api/me/friends',
+//                    headers: authService.getAuthHeaders()
+//                }
+//                $http(request).success(success).error(error);
+//            },
+
+//            getOtherUserFriendsPreview: function (username, success, error) {
+//                var friendsPreview = {
+//                    method: 'GET',
+//                    url: baseServiceUrl + '/api/users/' + username + '/friends/preview',
+//                    headers: authService.getAuthHeaders()
+//                }
+//                $http(request).success(success).error(error);
+//            },
+
+//            getOtherUserFriends: function (username, success, error) {
+//                var friends = {
+//                    method: 'GET',
+//                    url: baseServiceUrl + '/api/users/' + username + '/friends',
+//                    headers: authService.getAuthHeaders()
+//                }
+//                $http(request).success(success).error(error);
+//            },
+
+//            getFriendRequests: function (success, error) {
+//                var friendRequests = {
+//                    method: 'GET',
+//                    url: baseServiceUrl + '/api/me/requests',
+//                    headers: authService.getAuthHeaders()
+//                }
+//                $http(request).success(success).error(error);
+//            },
+
+//            sendFriendRequest: function (requestData, name, success, error) {
+//                var friendRequest = {
+//                    method: 'POST',
+//                    url: baseServiceUrl + '/api/me/requests/' + name,
+//data: requestData,
+//                    headers: authService.getAuthHeaders()
+//                }
+//                $http(request).success(function(data){
+//
+//success(data);
+//}).error(error);
+//            },
+
+//            approveFriendRequest: function (friendRequest, requestId, success, error) {
+//                var approveRequests = {
+//                    method: 'PUT',
+//                    url: baseServiceUrl + '/api/requests/' + requestId + '?status=approved',
+//data: friendRequest,
+//                    headers: authService.getAuthHeaders()
+//                }
+//                $http(request).success(success).error(error);
+//            },
+
+//            rejectFriendRequest: function (friendRequest, requestId, success, error) {
+//                var rejectRequest = {
+//                    method: 'PUT',
+//                    url: baseServiceUrl + '/api/requests/' + requestId + '?status=rejected',
+//data: friendRequest,
+//                    headers: authService.getAuthHeaders()
+//                }
+//                $http(request).success(success).error(error);
+//            }
+//        }
+//    }]);

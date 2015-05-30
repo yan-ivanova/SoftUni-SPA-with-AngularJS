@@ -24,11 +24,11 @@ app.config(function ($routeProvider) {
 
     $routeProvider.when('/users/:username', {
         templateUrl: 'templates/partial/userWall.html',
-        controller: 'WallController'
+        controller: 'UserWallController'
     });
 
     $routeProvider.when('/users/:username/friends', {
-        templateUrl: 'templates/partial/myFriends.html',
+        templateUrl: 'templates/partial/friendsPage.html',
         controller: 'MyFriendsController'
     });
 

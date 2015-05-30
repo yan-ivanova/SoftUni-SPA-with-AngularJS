@@ -122,7 +122,7 @@
 //    }]);
 ///////
 
-app.factory('postsData', ['$resource', 'baseServiceUrl', 'authService',
+app.factory('postsData', ['$resource', 'baseServiceUrl', 'authService', 'notifyService',
     function ($resource, baseServiceUrl, authService) {
         function getNewsFeed(startPostId, pageSize) {
             return $resource(
@@ -135,7 +135,7 @@ app.factory('postsData', ['$resource', 'baseServiceUrl', 'authService',
                     headers: authService.getAuthHeaders()
                 }
             })
-            .get();
+            //.get();
         }
 
         function getUserWall(username, startPostId, pageSize) {
@@ -149,7 +149,7 @@ app.factory('postsData', ['$resource', 'baseServiceUrl', 'authService',
                     headers: authService.getAuthHeaders()
                 }
             })
-            .get();
+            //.get();
         }
 
         function addPost(post) {
@@ -162,7 +162,7 @@ app.factory('postsData', ['$resource', 'baseServiceUrl', 'authService',
                     headers: authService.getAuthHeaders()
                 }
             })
-            .save(post);
+            //.save(post);
         }
 
         function editPost(postId, postContent) {
@@ -175,7 +175,7 @@ app.factory('postsData', ['$resource', 'baseServiceUrl', 'authService',
                     headers: authService.getAuthHeaders()
                 }
             })
-            .update(postContent);
+            //.update(postContent);
         }
 
         function deletePost(postId) {
@@ -188,7 +188,7 @@ app.factory('postsData', ['$resource', 'baseServiceUrl', 'authService',
                     headers: authService.getAuthHeaders()
                 }
             })
-            .delete();
+            //.delete();
         }
 
         function getPostComments(postId) {
@@ -202,7 +202,7 @@ app.factory('postsData', ['$resource', 'baseServiceUrl', 'authService',
                     headers: authService.getAuthHeaders()
                 }
             })
-            .get();
+            //.get();
         }
 
         function likePost(postId) {
@@ -215,7 +215,7 @@ app.factory('postsData', ['$resource', 'baseServiceUrl', 'authService',
                     headers: authService.getAuthHeaders()
                 }
             })
-            .save();
+            //.save();
         }
 
         function unlikePost(postId) {
@@ -228,33 +228,120 @@ app.factory('postsData', ['$resource', 'baseServiceUrl', 'authService',
                     headers: authService.getAuthHeaders()
                 }
             })
-            .delete();
         }
 
         return {
-            getNewsFeed: function (params, success, error) {
-                return getNewsFeed.get(params, success, error);
+            getNewsFeed: function (success, error) {
+                return getNewsFeed.get().success(success).error(error);
             },
-            getUserWall: function (params, success, error) {
-                return getUserWall.get(params, success, error);
+            getUserWall: function (success, error) {
+                return getUserWall.get().success(success).error(error);
             },
             addPost: function (post, success, error) {
-                return addPost.save(post, success, error);
+                return addPost.save(post).success(success).error(error);
             },
             editPost: function (postContent, success, error) {
-                return editPost.update(postContent, success, error);
+                return editPost.update(postContent).success(success).error(error);
             },
-            deletePost: function (params, success, error) {
-                return deletePost.delete(params, success, error);
+            deletePost: function (success, error) {
+                return deletePost.delete().success(success).error(error);
             },
-            getPostComments: function (params, success, error) {
-                return getPostComments.get(params, success, error);
+            getPostComments: function (success, error) {
+                return getPostComments.get().success(success).error(error);
             },
-            likePost: function (params, success, error) {
-                return likePost.save(params, success, error);
+            likePost: function  (success, error) {
+                return likePost.save().success(success).error(error);
             },
-            unlikePost: function (params, success, error) {
-                return unlikePost.delete(params, success, error);
+            unlikePost: function (postId, success, error) {
+                return unlikePost.delete(postId).success(success).error(error);
             }
         }
     }]);
+
+// with $http
+
+//app.factory('postsData', ['$http', 'baseServiceUrl', 'authService', 'notifyService',
+//    function ($http, baseServiceUrl, authService, notifyService) {
+//        return {
+//            getNewsFeed: function(startPostId, pageSize, success, error) {
+//                var request = {
+//                    method: 'GET',
+//                    url: baseUrl + '/api/me/feed?StartPostId=' + (startPostId || '') + '&PageSize=' + pageSize,
+//                    headers: authService.getAuthHeaders()
+//                }
+//                $http(request).success(success).error(error);
+//            },
+
+//            getUserWall: function(username, startPostId, pageSize, success, error) {
+//                var request = {
+//                    method: 'GET',
+//                    url: baseUrl + '/api/users/' + username + '/wall?StartPostId=' + (startPostId || '') + '&PageSize=' + pageSize,
+//                    headers: authService.getAuthHeaders()
+//                }
+//                $http(request).success(success).error(error);
+//            },
+
+//            addPost: function(postData, success, error) {
+//                var request = {
+//                    method: 'POST',
+//                    url: baseUrl + '/api/posts',
+//                    data: postData,
+//                    headers: authService.getAuthHeaders()
+//                }
+//                $http(request).success(function(data){
+                
+//                    success(data);
+//                    }).error(error);
+//            },
+
+//            editPost: function(postId, postContent, success, error) {
+//                var request = {
+//                    method: 'PUT',
+//                    url: baseUrl + '/api/posts/' + postId,
+//                    data: postContent,
+//                    headers: authService.getAuthHeaders()
+//                }
+//                $http(request).success(success).error(error);
+//            },
+
+//            deletePost: function(postId, success, error) {
+//                var request = {
+//                    url:baseUrl + '/api/posts/' + postId,
+//                    method: 'DELETE',
+//                    headers: authService.getAuthHeaders()
+//                }
+//                $http(request).success(success).error(error);
+//            },
+
+//            getPostComments:function(postId, success, error) {
+//                var request = {
+//                    method: 'GET',
+//                    url: baseUrl + '/api/posts/' + postId + '/comments',
+//                    headers: authService.getAuthHeaders()
+//                }
+//                $http(request).success(success).error(error);
+//            },
+
+//            likePost: function(postId, success, error) {
+//                var request = {
+//                    method: 'POST',
+//                    url: baseUrl + '/api/posts/' + postId + '/likes',            
+//                    data: postId,
+//                    headers: authService.getAuthHeaders()
+//                }
+//                $http(request).success(function(data){
+                
+//                    success(data);
+//                }).error(error);
+//            },
+
+//            unlikePost: function(postId, success, error) {
+//                var request = {
+//                    method: 'DELETE',
+//                    url: baseUrl + 'api/posts/' + postId + '/likes',   
+//                    headers: authService.getAuthHeaders()
+//                }
+//                $http(request).success(success).error(error);
+//            }
+//        }
+//    }]);
