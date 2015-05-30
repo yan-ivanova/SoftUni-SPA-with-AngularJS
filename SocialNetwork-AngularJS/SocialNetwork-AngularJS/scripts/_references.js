@@ -391,3 +391,4 @@
 /// <reference path="../app/js/controllers/userwallcontroller.js" />
 /// <reference path="../app/js/controllers/userfriendscontroller.js" />
 /// <reference path="../app/js/controllers/feedcontroller.js" />
+/// <reference path="../app/js/controllers/homecontroller.js" />

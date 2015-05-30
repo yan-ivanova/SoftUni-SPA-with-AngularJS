@@ -29,7 +29,7 @@ app.config(function ($routeProvider) {
 
     $routeProvider.when('/users/:username/friends', {
         templateUrl: 'templates/partial/friendsPage.html',
-        controller: 'MyFriendsController'
+        controller: 'UserFriendsController'
     });
 
     $routeProvider.when('/profile', {
