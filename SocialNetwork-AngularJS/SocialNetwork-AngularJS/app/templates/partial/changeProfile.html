@@ -1,4 +1,4 @@
-﻿<div ng-if="authService.isLoggedIn()" class="row" ng-include="'templates/homeHeader.html'">
+﻿<div ng-if="authService.isLoggedIn()" class="row" ng-include="'templates/homeHeader.html'" ng-controller="HomeController">
 </div>
 
 <div class="row">
@@ -21,20 +21,16 @@
                         <div class="col-lg-12">
                             <div class="preview">
 
-                                <div class="form-group">
-                                    
+                                <div class="form-group picture-upload">
+
                                     <div class="col-md-9">
                                         <!--<input type="file" class="form-control" ng-init="changeUser.profileImageData = getUserProfile.profileImageData" ng-model="changeUser.profileImageData" base-sixty-four-input id="inputProfileImageData" placeholder="img" ng-change="formatProfileImgToBase64()">-->
-                                        <img src="" ng-src="{{userData.profileImageData}}" class="img-thumbnail img-responsive" base-sixty-four-image="changeUser.profileImageData" alt="{{userData.name}}" ng-show="profileImg[0].type.indexOf('image') > -1" ngf-src="profileImg[0]" ngf-accept="'image/*'" ng-model="userData.profileImageData"  />
-                                        <p>Limit 128 kB</p>
-                                       
+                                        <img ng-src="{{userData.profileImageData}}" class="picture-preview thumbnail" base-sixty-four-image="userData.profileImageData" alt="{{userData.name}}" ng-show="profileImg[0].type.indexOf('image') > -1" ngf-src="profileImg[0]" ngf-accept="'image/*'" ng-model="userData.profileImageData" style="width: 100px; height: 150px" ng-change="convertProfileImg()" />
+                                        <p>Profile image Limit 128 KB</p>
+
                                     </div>
                                 </div>
 
-
-                                <img ng-src="data:image/jpeg;base64,{{data.UserPhoto}}" id="photo-id" />
-
-                                
                             </div>
                         </div>
                         <div class="col-lg-12">
@@ -74,12 +70,14 @@
                     </div>
                     <div class="form-group">
                         <div class="col-lg-3">
+                            <p>Cover image</br>
+                            Limit 1024 KB</p>
                             <button class="upload-button ng-pristine ng-untouched ng-valid" ng-model="coverImg" ngf-select="" ngf-multiple="false" ngf-accept="'*.jpg,*.png'">Upload</button>
                         </div>
                         <div class="col-lg-9">
                             <div class="preview">
-                                <img src="" ng-src="data:image/jpeg;base64,{{userData.coverImageData}}" class="img-thumbnail img-responsive" base-sixty-four-image="changeUser.coverImageData" alt="{{userData.name}}" ng-show="coverImg[0].type.indexOf('image') > -1" ngf-src="coverImg[0]" ngf-accept="'image/*'" ng-model="userData.coverImageData" />
-                                <img class="ng-hide" ng-src="{{userData.coverImageData}}" src="" ng-show="coverImg[0].type.indexOf('image') > -1" ngf-src="coverImg[0]" ngf-accept="'image/*'" ng-model="userData.coverImageData">
+                                <img src="" ng-src="data:image/jpeg;base64,{{userData.coverImageData}}" class="img-thumbnail img-responsive" base-sixty-four-image="changeUser.coverImageData" alt="{{userData.name}}" ng-show="coverImg[0].type.indexOf('image') > -1" ngf-src="coverImg[0]" ngf-accept="'image/*'" ng-model="userData.coverImageData" style="width: 100%; height: 180px" />
+                                <!--<img class="ng-hide" ng-src="{{userData.coverImageData}}" src="" ng-show="coverImg[0].type.indexOf('image') > -1" ngf-src="coverImg[0]" ngf-accept="'image/*'" ng-model="userData.coverImageData">-->
                             </div>
                         </div>
                     </div>
@@ -89,7 +87,7 @@
         </fieldset>
         <div class="form-group col-lg-12">
             <div class="col-lg-10 col-lg-offset-10">
-                <button id="button" type="button" class="btn btn-lg btn-primary" ng-click="changeUser(userData)">Save Changes</button>
+                <button id="button" type="submit" class="btn btn-lg btn-primary" ng-click="changeUser(userData)">Save Changes</button>
             </div>
         </div>
 

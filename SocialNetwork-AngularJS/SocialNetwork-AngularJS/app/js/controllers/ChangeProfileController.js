@@ -19,7 +19,6 @@ app.controller('ChangeProfileController', ['$scope', '$rootScope', '$location', 
             userService.changeUser(userData,
                 function success() {
                     notifyService.showInfo("User edited successfully");
-                    console.log(userData);
                     $location.path("/");
                 },
                 function error(err) {
@@ -63,12 +62,61 @@ app.controller('ChangeProfileController', ['$scope', '$rootScope', '$location', 
             }
         };
 
-        //function convertProfileImg() {
-        //    $scope.userData.profileImageData = 'data:image/jpg;base64,' + $scope.userData.profileImageData.base64;
-        //}
-        //function convertCoverImg() {
-        //    $scope.userData.coverImageData = 'data:image/jpg;base64,' + $scope.userData.coverImageData.base64;
-        //}
+
+        //
+
+        $scope.uploadImage = function (event) {
+            var previewElement,
+            inputElement,
+            file,
+            reader,
+            sizeLimit;
+
+            switch (event.target.id) {
+                case 'profile-image':
+                    previewElement = $('.picture-preview');
+                    inputElement = $('#profile-image');
+                    sizeLimit = 131072;
+                    break;
+                case 'cover-image':
+                    previewElement = $('.cover-preview');
+                    inputElement = $('#cover-image');
+                    sizeLimit = 1048576;
+                    break;
+            }
+
+            file = event.target.files[0];
+
+            if (file && !file.type.match(/image\/.*/)) {
+                notifyService.showError("Invalid file format.");
+            } else if (file && file.size > sizeLimit) {
+                notifyService.showError("File size limit exceeded.");
+            } else if (file) {
+                reader = new FileReader();
+                reader.onload = function () {
+                    previewElement.attr('ng-src', reader.result);
+                    inputElement.attr('data-picture-data', reader.result);
+                    if (event.target.id === 'profile-image') {
+                        $scope.userData.profileImageData = reader.result;
+                    } else {
+                        $scope.userData.coverImageData = reader.result;
+                    }
+                };
+                reader.readAsDataURL(file);
+            }
+        };
+
+        $scope.clickUpload = function (element) {
+            angular.element(element).trigger('click');
+        };
+
+
+        function convertProfileImg() {
+            $scope.userData.profileImageData = 'data:image/jpg;base64,' + $scope.userData.profileImageData.base64;
+        }
+        function convertCoverImg() {
+            $scope.userData.coverImageData = 'data:image/jpg;base64,' + $scope.userData.coverImageData.base64;
+        }
         //ng-change="convertProfileImg()"
     }
 ]);
