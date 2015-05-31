@@ -3,10 +3,6 @@
 app.controller('RegisterController',
     function ($scope, $rootScope, $location, authService, notifyService) {
         $rootScope.pageTitle = "Register";
-
-        //$scope.userData = {townId: null};
-        //$scope.towns = townsService.getTowns();
-
         $scope.register = function(userData) {
             authService.register(userData,
                 function success() {

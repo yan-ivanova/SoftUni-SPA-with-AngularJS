@@ -1,127 +1,5 @@
 ﻿'use strict';
 
-//app.factory('postsData', ['$resource', 'baseServiceUrl', 'authService',
-//    function ($resource, baseServiceUrl, authService) {
-//        function getNewsFeed(startPostId, pageSize, success, error) {
-//            return $resource(
-//            baseUrl + '/api/me/feed?StartPostId=' + (startPostId || '') + '&PageSize=' + pageSize,
-//            null,
-//            {
-//                'get': {
-//                    method: 'GET',
-//                    isArray: true,
-//                    headers: authService.getAuthHeaders()
-//                }
-//            })
-//            .get();
-//        }
-
-//        function getUserWall(username, startPostId, pageSize) {
-//            return $resource(
-//            baseUrl + '/api/users/' + username + '/wall?StartPostId=' + (startPostId || '') + '&PageSize=' + pageSize,
-//            null,
-//            {
-//                'get': {
-//                    method: 'GET',
-//                    isArray: true,
-//                    headers: authService.getAuthHeaders()
-//                }
-//            })
-//            .get();
-//        }
-
-//        function addPost(post) {
-//            return $resource(
-//            baseUrl + '/api/posts',
-//            null,
-//            {
-//                'save': {
-//                    method: 'POST',
-//                    headers: authService.getAuthHeaders()
-//                }
-//            })
-//            .save(post);
-//        }
-
-//        function editPost(postId, postContent) {
-//            return $resource(
-//            baseUrl + '/api/posts/' + postId,
-//            null,
-//            {
-//                'update': {
-//                    method: 'PUT',
-//                    headers: authService.getAuthHeaders()
-//                }
-//            })
-//            .update(postContent);
-//        }
-
-//        function deletePost(postId) {
-//            return $resource(
-//            baseUrl + '/api/posts/' + postId,
-//            null,
-//            {
-//                'delete': {
-//                    method: 'DELETE',
-//                    headers: authService.getAuthHeaders()
-//                }
-//            })
-//            .delete();
-//        }
-
-//        function getPostComments(postId) {
-//            return $resource(
-//            baseUrl + '/api/posts/' + postId + '/comments',
-//            null,
-//            {
-//                'get': {
-//                    method: 'GET',
-//                    isArray: true,
-//                    headers: authService.getAuthHeaders()
-//                }
-//            })
-//            .get();
-//        }
-
-//        function likePost(postId) {
-//            return $resource(
-//            baseUrl + '/api/posts/' + postId + '/likes',
-//            null,
-//            {
-//                'save': {
-//                    method: 'POST',
-//                    headers: authService.getAuthHeaders()
-//                }
-//            })
-//            .save();
-//        }
-
-//        function unlikePost(postId) {
-//            return $resource(
-//            baseUrl + 'api/posts/' + postId + '/likes',
-//            null,
-//            {
-//                'delete': {
-//                    method: 'DELETE',
-//                    headers: authService.getAuthHeaders()
-//                }
-//            })
-//            .delete();
-//        }
-
-//        return {
-//            getNewsFeed: getNewsFeed,
-//            getUserWall: getUserWall,
-//            addPost: addPost,
-//            editPost: editPost,
-//            deletePost: deletePost,
-//            getPostComments: getPostComments,
-//            likePost: likePost,
-//            unlikePost: unlikePost
-//        }
-//    }]);
-///////
-
 app.factory('postsData', ['$resource', 'baseServiceUrl', 'authService', 'notifyService',
     function ($resource, baseServiceUrl, authService) {
         function getNewsFeed(startPostId, pageSize) {
@@ -135,7 +13,6 @@ app.factory('postsData', ['$resource', 'baseServiceUrl', 'authService', 'notifyS
                     headers: authService.getAuthHeaders()
                 }
             })
-            //.get();
         }
 
         function getUserWall(username, startPostId, pageSize) {
@@ -149,7 +26,6 @@ app.factory('postsData', ['$resource', 'baseServiceUrl', 'authService', 'notifyS
                     headers: authService.getAuthHeaders()
                 }
             })
-            //.get();
         }
 
         function addPost(post) {
@@ -162,7 +38,6 @@ app.factory('postsData', ['$resource', 'baseServiceUrl', 'authService', 'notifyS
                     headers: authService.getAuthHeaders()
                 }
             })
-            //.save(post);
         }
 
         function editPost(postId, postContent) {
@@ -175,7 +50,6 @@ app.factory('postsData', ['$resource', 'baseServiceUrl', 'authService', 'notifyS
                     headers: authService.getAuthHeaders()
                 }
             })
-            //.update(postContent);
         }
 
         function deletePost(postId) {
@@ -188,7 +62,6 @@ app.factory('postsData', ['$resource', 'baseServiceUrl', 'authService', 'notifyS
                     headers: authService.getAuthHeaders()
                 }
             })
-            //.delete();
         }
 
         function getPostComments(postId) {
@@ -202,7 +75,6 @@ app.factory('postsData', ['$resource', 'baseServiceUrl', 'authService', 'notifyS
                     headers: authService.getAuthHeaders()
                 }
             })
-            //.get();
         }
 
         function likePost(postId) {
@@ -215,7 +87,6 @@ app.factory('postsData', ['$resource', 'baseServiceUrl', 'authService', 'notifyS
                     headers: authService.getAuthHeaders()
                 }
             })
-            //.save();
         }
 
         function unlikePost(postId) {

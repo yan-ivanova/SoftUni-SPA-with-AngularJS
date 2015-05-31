@@ -392,3 +392,4 @@
 /// <reference path="../app/js/controllers/userfriendscontroller.js" />
 /// <reference path="../app/js/controllers/feedcontroller.js" />
 /// <reference path="../app/js/controllers/homecontroller.js" />
+/// <reference path="../app/lib/angular/angular-base64.js" />

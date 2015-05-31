@@ -112,7 +112,8 @@ app.controller('ChangeProfileController', ['$scope', '$rootScope', '$location', 
 
 
         function convertProfileImg() {
-            $scope.userData.profileImageData = 'data:image/jpg;base64,' + $scope.userData.profileImageData.base64;
+            $scope.userData.profileImageData = $base64.encode($scope.profileImg[0].base64);
+           //$scope.userData.profileImageData = 'data:image/jpg;base64,' + $scope.userData.profileImageData.base64;
         }
         function convertCoverImg() {
             $scope.userData.coverImageData = 'data:image/jpg;base64,' + $scope.userData.coverImageData.base64;

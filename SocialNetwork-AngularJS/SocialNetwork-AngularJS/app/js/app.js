@@ -24,7 +24,7 @@ app.config(function ($routeProvider) {
 
     $routeProvider.when('/users/:username', {
         templateUrl: 'templates/partial/userWall.html',
-        controller: 'UserWallController'
+        controller: 'UserFriendsController'
     });
 
     $routeProvider.when('/users/:username/friends', {

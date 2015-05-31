@@ -71,6 +71,7 @@
     <Content Include="app\img\post.jpg" />
     <Content Include="app\js\controllers\ChangePasswordController.js" />
     <Content Include="app\js\controllers\ChangeProfileController.js" />
+    <Content Include="app\js\controllers\HomeController.js" />
     <Content Include="app\js\controllers\UserFriendsController.js" />
     <Content Include="app\js\controllers\FeedController.js" />
     <Content Include="app\js\controllers\LoginController.js" />
@@ -80,6 +81,7 @@
     <Content Include="app\js\services\notifyService.js" />
     <Content Include="app\js\services\postService.js" />
     <Content Include="app\js\services\userFriendsServise.js" />
+    <Content Include="app\lib\angular\angular-base64.js" />
     <Content Include="app\lib\angular\ng-file-upload-all.js" />
     <Content Include="app\lib\angular\ng-file-upload-shim.js" />
     <Content Include="app\lib\angular\ng-file-upload.js" />

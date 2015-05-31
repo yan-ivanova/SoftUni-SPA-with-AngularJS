@@ -1,7 +1,7 @@
 ﻿'use strict';
 
-app.controller('UserFriendsController',
-   function ($scope, notifyService, pageSize, authService, userFriendsService) {
+app.controller('UserFriendsController', ['$scope', '$rootScope', '$location', 'userService', 'userFriendsService', 'my', "myList",
+   function ($scope, $rootScope, notifyService, pageSize, authService, userFriendsService, userService) {
        $scope.postParams = {
            'startPage': 1,
            'pageSize': pageSize
@@ -14,93 +14,100 @@ app.controller('UserFriendsController',
        //      })
        //}
 
-       $scope.getMyFriendsPreview = function () {
-           userFriendsService.getUserFriendsPreview(
+       $scope.getMyFriendsPreview = function () {  //list, count
+           mylList.getUserFriendsPreview(
               function success(data) {
-                  $scope.posts = data;
+                  $scope.myFriendsList = data;
+                  notifyService.showInfo("Data loaded successfully");
               },
                function error(err) {
-                   notifyService.showError("Cannot load posts", err);
+                   notifyService.showError("Cannot load data", err);
+               }
+           );
+       };
+       //$scope.getMyFriendsPreview();
+
+       $scope.getMyFriends = function () {
+           my.getUserFriends(
+              function success(data) {
+                  $scope.myFriends = data;
+                  notifyService.showInfo("Data loaded successfully");
+                  
+              },
+               function error(err) {
+                   notifyService.showError("Cannot load data", err);
                }
            );
        };
 
-       $scope.getMyFriends = function () {
-           userFriendsService.getUserFriends(
-              function success(data) {
-                  $scope.posts = data;
-              },
-               function error(err) {
-                   notifyService.showError("Cannot load posts", err);
-               }
-           );
-       };
+       //$scope.getMyFriends();
 
        $scope.getUserFriendsPreview = function (username) {
            userFriendsService.getOtherUserFriendsPreview(username,
-              function success(data) {
-                  $scope.posts = data;
+              function success() {
+                  notifyService.showInfo("Data loaded successfully");
               },
                function error(err) {
-                   notifyService.showError("Cannot load posts", err);
+                   notifyService.showError("Cannot load data", err);
                }
            );
        };
 
        $scope.getUserFriends = function (username) {
            userFriendsService.getOtherUserFriends(username,
-              function success(data) {
-                  $scope.posts = data;
+              function success() {
+                  notifyService.showInfo("Data loaded successfully");
               },
                function error(err) {
-                   notifyService.showError("Cannot load posts", err);
+                   notifyService.showError("Cannot load data", err);
                }
            );
        };
 
        $scope.getMyRequests = function () {
            userFriendsService.getFriendRequests(
-              function success(data) {
-                  $scope.posts = data;
+              function success() {
+                  // $scope.posts = data;
+                  notifyService.showInfo("Data loaded successfully");
               },
                function error(err) {
-                   notifyService.showError("Cannot load posts", err);
+                   notifyService.showError("Cannot load data", err);
                }
            );
        };
 
        $scope.sendFriendsRequest = function (name) {
            userFriendsService.sendFriendRequest(name,
-              function success(data) {
-                  $scope.posts = data;
+              function success() {
+                  notifyService.showInfo("Data loaded successfully");
               },
                function error(err) {
-                   notifyService.showError("Cannot load posts", err);
+                   notifyService.showError("Cannot load data", err);
                }
            );
        };
 
        $scope.ApproveRequest = function (requestId) {
            userFriendsService.approveFriendRequest(requestId,
-              function success(data) {
-                  $scope.posts = data;
+              function success() {
+                  notifyService.showInfo("Data loaded successfully");
               },
                function error(err) {
-                   notifyService.showError("Cannot load posts", err);
+                   notifyService.showError("Cannot load data", err);
                }
            );
        };
 
        $scope.RejectRequest = function (requestId) {
            userFriendsService.rejectFriendRequest(requestId,
-              function success(data) {
-                  $scope.posts = data;
+              function success() {
+                  notifyService.showInfo("Data loaded successfully");
               },
                function error(err) {
-                   notifyService.showError("Cannot load posts", err);
+                   notifyService.showError("Cannot load data", err);
                }
            );
        };
 
    }
-);
+]);

@@ -3,36 +3,38 @@
 app.factory('userFriendsService', ['$resource', 'baseServiceUrl', 'authService', 'notifyService',
     function ($resource, baseServiceUrl, authService) {
         return {
-            getUserFriendsPreview: function (success, error) {
-                var friendsPreview = $resource(
-                    baseServiceUrl + '/api/me/friends/preview',
-                    null,
-                    {
-                        'getFriendsPreview': {
-                            method: 'GET',
-                            headers: authService.getAuthHeaders()
-                        }
-                    }
-                );
+            //getUserFriendsPreview: function (success, error) {
+            //    var friendsPreview = $resource(
+            //        baseServiceUrl + '/api/me/friends/preview',
+            //        null,
+            //        {
+            //            'getFriendsPreview': {
+            //                method: 'GET',
+            //                headers: authService.getAuthHeaders()
+            //            }
+            //        }
+            //    );
 
-                return friendsPreview.getFriendsPreview(success, error);
-            },
+            //    // return friendsPreview.getFriendsPreview(success, error);
+            //    return friendsPreview.query(success, error);
+            //},
 
-            getUserFriends: function (success, error) {
-                var friends = $resource(
-                    baseServiceUrl + '/api/me/friends',
-                    null,
-                    {
-                        'getFriends': {
-                            method: 'GET',
-                            isArray: true,
-                            headers: authService.getAuthHeaders()
-                        }
-                    }
-                );
+            //getUserFriends: function (success, error) {
+            //    var friends = $resource(
+            //        baseServiceUrl + '/api/me/friends',
+            //        null,
+            //        {
+            //            'getFriends': {
+            //                method: 'GET',
+            //                isArray: true,
+            //                headers: authService.getAuthHeaders()
+            //            }
+            //        }
+            //    );
 
-                return friends.getFriends(success, error);
-            },
+            //    //return friends.getFriends(success, error);
+            //    return friends.query(success, error);
+            //},
 
             getOtherUserFriendsPreview: function (username, success, error) {
                 var friendsPreview = $resource(
@@ -131,7 +133,7 @@ app.factory('userFriendsService', ['$resource', 'baseServiceUrl', 'authService',
 
 //with $http
 
-//app.factory('userFriendsService', ['$http', 'baseServiceUrl', 'authService', 'notifyService'
+//app.factory('userFriendsService', ['$http', 'baseServiceUrl', 'authService', 'notifyService',
 //    function ($http, baseServiceUrl, authService, notifyService) {
 //        return {
 //            getUserFriendsPreview: function (success, error) {
@@ -187,7 +189,7 @@ app.factory('userFriendsService', ['$resource', 'baseServiceUrl', 'authService',
 //                    headers: authService.getAuthHeaders()
 //                }
 //                $http(request).success(function(data){
-//
+
 //success(data);
 //}).error(error);
 //            },
@@ -213,3 +215,49 @@ app.factory('userFriendsService', ['$resource', 'baseServiceUrl', 'authService',
 //            }
 //        }
 //    }]);
+
+//
+
+app.factory('myList', ['$resource', 'baseServiceUrl', 'authService', 'notifyService',
+    function ($resource, baseServiceUrl, authService) {
+        var friendsPreview = $resource(
+            baseServiceUrl + '/api/me/friends/preview',
+            null,
+            {
+                'getFriendsPreview': {
+                    method: 'GET',
+                    headers: authService.getAuthHeaders()
+                }
+            }
+        );
+
+        // return friendsPreview.getFriendsPreview(success, error);
+        return {
+            getUserFriendsPreview: function (params, success, error) {
+                return friendsPreview.getFriendsPreview(success, error);
+            }
+        }
+    }
+]);
+
+app.factory('my', ['$resource', 'baseServiceUrl', 'authService', 'notifyService',
+    function ($resource, baseServiceUrl, authService) {
+        var friends = $resource(
+            baseServiceUrl + '/api/me/friends'
+            //null,
+            //{
+            //    'getFriends': {
+            //        method: 'GET',
+            //        isArray: true,
+            //        headers: authService.getAuthHeaders()
+            //    }
+            //}
+        );
+        //return friends.getFriends(success, error);
+        return {
+            getUserFriends: function (params, success, error) {
+                return friends.query(success, error);
+            }
+        }
+    }
+]);

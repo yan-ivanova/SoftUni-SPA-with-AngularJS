@@ -23,14 +23,14 @@ app.factory('userService',
                 $http(request).success(success).error(error);
             },
 
-            searchUsersByName: function (name, success, error) {
+            searchUsersByName: function (searchTerm) {
                 var request = {
                     method: 'GET',
-                    url: baseServiceUrl + '/api/users/search?searchTerm=' + name,
+                    url: baseServiceUrl + '/api/users/search?searchTerm=' + searchTerm,
                     headers: authService.getAuthHeaders()
                     //isArray: true,
                 };
-                $http(request).success(success).error(error);
+                $http(request);//.success(success).error(error);
             },
 
             getUserData: function (success, error) {

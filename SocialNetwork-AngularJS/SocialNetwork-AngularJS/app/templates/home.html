@@ -3,41 +3,17 @@
   max-size="9" boundary-links="true">
 </pagination>
 
-<ul class="ads">
-    <li ng-repeat="ad in ads.ads" class="box" data-id="{{ad.id}}">
-        <h1>{{ad.title}}</h1>
-        <div><strong>Date:</strong> {{ad.date | date:'dd-MMM-yyyy'}}</div>
-        <div ng-if='ad.imageDataUrl'>
-            <strong>Image:</strong><img class="ad-image" ng-src="{{ad.imageDataUrl}}" />
-        </div>
-        <div><strong>Text:</strong> {{ad.text}}</div>
-        <div><strong>Name:</strong> {{ad.ownerName}}</div>
-        <div><strong>Email:</strong> {{ad.ownerEmail}}</div>
-        <div><strong>Phone:</strong> {{ad.ownerPhone}}</div>
-    </li>
-</ul>
-
-<div ng-if="ads.ads.length==0" class="box no-data">
-    No ads found.
-</div>-->
+-->
 
 
 <div class="panel-group">
     <div ng-if="authService.isLoggedIn()" class="row">
-        <div ng-include="'templates/homeHeader.html'" ng-controller="HomeControlleer">
-
+        <div ng-include="'templates/homeHeader.html'" ng-controller="HomeController">
         </div>
-
-        <!--<div ng-include="'templates/partial/userPage.html'" class="col-lg-12" ></div>-->
-        <div class="row">
-            <!--</div>
-            <div ng-view></div>-->
-
             <div ng-include="'templates/partial/feedPage.html'">
             </div>
+    </div>
 
-        </div>
-    </div>  
     <div ng-if="authService.isAnonymous()" class="row">
         <h1 class="page-header">
             Welcome to Social Network
@@ -51,5 +27,4 @@
             </div>
         </div>
     </div>
-
 </div>

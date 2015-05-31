@@ -1,10 +1,5 @@
-.pesho {
-	color:red;
-}
-
-.pesho:hover {
-	color:blue 
-}
-.even_row {
-	background: red;
+.page-title {
+	border:solid 1px black;
+    margin-bottom: 15px;
+    padding-left: 5px;
 }

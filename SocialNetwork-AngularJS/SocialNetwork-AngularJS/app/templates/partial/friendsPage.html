@@ -18,7 +18,7 @@
             <div class="row">
                 <div class="col-sm-5 col-md-3" ng-repeat="friend in myFriends | filter: filterFriends">
                     <div class="thumbnail">
-                        <img ng-src="{{friend.profileImageData}}" err-src="{{defaultImage}}" alt="profile picture" style="width: 100px; height: 100px" />
+                        <img ng-src="{{friend.profileImageData}}" alt="profile picture" style="width: 100px; height: 100px" />
                         <div class="caption">
                             <h3 id="thumbnail-label">
                                 <a href="#/user/{{friend.username}}"><span>{{friend.name}}</span></a>
