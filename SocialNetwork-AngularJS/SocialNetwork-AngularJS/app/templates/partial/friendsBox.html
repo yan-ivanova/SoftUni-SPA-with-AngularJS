@@ -1,0 +1,27 @@
+﻿<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4>Friends - <a href="#/users/{{username}}/friends">{{totalCount}}</a> total</h4>
+    </div>
+    <div class="panel-body">
+        <div class="list-group">
+            <div class="friends-preview" ng-repeat="friend in friends">
+                <a href="#/users/{{friend.username}}" class="list-group-item">
+                    <img src="" ng-src="{{friend.profileImageData}}" alt="{{friend.name}}" ng-if="friend.profileImageData" />
+                    <img src="" ng-src="{{defaultProfileImageData}}" alt="{{friend.name}}" ng-if="!friend.profileImageData" />
+                    <h4 class="list-group-item-heading">{{friend.name}}</h4>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--da nadolu-->
+<div class="panel pull-right panel-info friends-preview col-xs-12" ng-if="friendsListPreview">
+    <div class="panel-heading">Friends - <a href="{{friendsListPreview.userFriendsUrl}}">{{friendsListPreview.totalCount}} total</a></div>
+    <div class="panel-body" ng-repeat="friend in friendsListPreview.friends">
+        <a href="#/user/{{friend.username}}/wall/">
+            <img ng-src="{{friend.profileImageData}}" err-src="{{defaultImage}}" alt="profile picture" title="{{friend.name}}" style="width: 50px; height: 50px" />
+            <span>{{friend.name}}</span>
+        </a>
+    </div>
+</div>
