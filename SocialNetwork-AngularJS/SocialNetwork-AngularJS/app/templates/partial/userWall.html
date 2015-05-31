@@ -1,0 +1,28 @@
+<div ng-if="authService.isLoggedIn()">
+    <div ng-include="'templates/homeHeader.html'" ng-controller="HomeController"></div>
+
+    <div class="wall-header col-xs-12 page-title" ng-style="{'background-image':'url(' + userData.coverImageData  +')' }">
+        <div class="media-left">
+            <img ng-src="{{userData.profileImageData}}" alt="profile picture" style="width: 90px; height: 130px" />
+        </div>
+        <div class="media-body">
+            <h2><a href="#/users/{{userData.username}}">{{userData.name}}</a></h2>
+            <div class="status">
+                <button ng-if="userData.status === 'invite'" type="submit" class="btn btn-lg btn-danger" ng-click="sendFriendRequest(userData.username)">Invite</button>
+                <button ng-if="userData.status === 'friend'" class="btn btn-lg btn-success" disabled>Friend</button>
+                <button ng-if="userData.status === 'pending'" class="btn btn-lg btn-warning" disabled>Pending</button>
+            </div>
+        </div>
+
+    </div>
+    <div class="form-group col-md-9 col-xs-12">
+        <div ng-if="userWall.isFriend" ng-include="'templates/postBox.html'" class="row well">
+        </div>
+        <div ng-if="isLogged()" ng-include="'templates/posts.html'" class="row" >
+        </div>
+    </div>
+    <div profile-controller-directive="">
+        <div class="media col-md-3" ng-init="getOwnFriendsListPreview()" ng-include="'templates/partial/friendsBox.html'"></div>
+        <!--<div class="media col-md-3" ng-if="!MyOwnWall && friendsListPreview" ng-init="getUserFriendsListPreview()" ng-include="'templates/friendsBox.html'"></div>-->
+    </div>
+</div>
